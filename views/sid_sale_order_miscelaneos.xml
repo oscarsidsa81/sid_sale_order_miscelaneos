@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+        <!--SALE ORDER - PRESUPUESTOS 	model="ir.ui.view" 	sale.order.tree-->
+
+       <record id="sid_sale_order_draft_crm_fields.tree" model="ir.ui.view">
+            <field name="name">sid_sale_order_miscelaneos.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="17"/>
+            <field name="inherit_id" ref="sale.order.tree"/>
+            <field name="arch" type="xml">
+              <xpath expr="//tree[1]/field[@name='project_manager_id']" position="attributes">
+                <attribute name="string">Expediting</attribute>
+              </xpath>
+            </field>
+        </record>
+
+        <!--SALE ORDER - FORM 	model="ir.ui.view" 	sale.order.form-->
+
+         <record id="sid_sale_order_miscelaneos.form_invoice_lines" model="ir.ui.view">
+            <field name="name">sid_sale_order_miscelaneos.form_invoice_lines</field>
+            <field name="model">sale.order</field>
+            <field name="priority" eval="16"/>
+            <field name="inherit_id" ref="sale.order.form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//div[@name='invoice_lines']" position="attributes">
+                  <attribute name="groups">base.group_user,account.group_account_manager</attribute>
+              </xpath>
+            </field>
+         </record>
+    </data>
+</odoo>
